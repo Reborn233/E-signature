@@ -10,5 +10,5 @@ npm run dev
 
 
 # build
-npm run buidl
+npm run build
 ```
