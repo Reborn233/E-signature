@@ -1,0 +1,144 @@
+html, body {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+    background-color: #f8f8f8;
+    color: #212529;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: normal;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.weui-vcode-btn_disabled {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.weui-vcode-btn_disabled:active {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.capBtn {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    bottom: 30px;
+}
+
+.capBtn::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+}
+
+.close.icon {
+    color: #000;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    width: 21px;
+    height: 21px;
+}
+
+.close.white {
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    right: 10px;
+}
+
+.close.icon:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 1px;
+    background-color: currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.close.icon:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 1px;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.weui-vcode-btn {
+    position: relative;
+    border-left: none;
+    color: rgb(238,124,16);
+}
+
+.weui-vcode-btn:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    border-left: 1px solid #e5e5e5;
+}
+
+
+
