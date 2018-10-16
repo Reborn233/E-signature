@@ -4,6 +4,7 @@ import {
     Label, CellFooter, Button, ButtonArea
 } from 'react-weui';
 import Page from '@/components/Page';
+import Toast from '@/components/Toast';
 
 import {withRouter} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
@@ -24,7 +25,12 @@ class Home extends Component {
     }
 
     next() {
-        this.props.history.push('/agreement');
+        Toast.error('服务器连接异常服务器连接异常');
+        // this.props.history.push('/agreement');
+    }
+
+    confirm() {
+        console.log('confirm')
     }
 
     sendHandler() {
@@ -76,7 +82,7 @@ class Home extends Component {
     render() {
         const {name, identity, phone} = this.props.formStore.form;
         return (
-            <Page>
+            <Page ref='page'>
                 <Form className='mt0'>
                     <FormCell>
                         <CellHeader>
