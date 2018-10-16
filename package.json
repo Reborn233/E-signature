@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cross-env": "^5.2.0",
     "lodash": "^4.17.11",
     "mobx": "^5.5.0",
     "mobx-react": "^5.2.8",
@@ -21,9 +22,16 @@
     "weui": "1.1.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "cross-env FS_ENV=dev react-app-rewired start",
+    "sit": "cross-env FS_ENV=sit react-app-rewired build",
+    "build": "cross-env FS_ENV=prod react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true
+    }
   }
 }

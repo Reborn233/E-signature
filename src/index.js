@@ -11,7 +11,9 @@ import App from './router';
 import registerServiceWorker from './registerServiceWorker';
 import VConsole from 'vconsole';
 
-new VConsole();
+if (process.env.NODE_ENV === 'development') {
+    new VConsole();
+}
 
 
 ReactDOM.render(

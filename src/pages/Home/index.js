@@ -25,7 +25,7 @@ class Home extends Component {
     }
 
     next() {
-        Toast.error('服务器连接异常服务器连接异常');
+        Toast.error('服务器连接异常');
         // this.props.history.push('/agreement');
     }
 
