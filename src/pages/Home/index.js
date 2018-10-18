@@ -4,10 +4,12 @@ import {
     Label, CellFooter, Button, ButtonArea
 } from 'react-weui';
 import Page from '@/components/Page';
-import Toast from '@/components/Toast';
+// import Toast from '@/components/Toast';
 
 import {withRouter} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
+
+import {testApi} from '../../api';
 
 const ONE_MIN = 60;
 
@@ -24,9 +26,11 @@ class Home extends Component {
         }
     }
 
-    next() {
-        Toast.error('服务器连接异常');
-        this.props.history.push('/agreement');
+    async next() {
+        const response = await testApi();
+        console.log(response.data);
+        // Toast.error('服务器连接异常');
+        // this.props.history.push('/agreement');
     }
 
     confirm() {
