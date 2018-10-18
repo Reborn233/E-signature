@@ -29,8 +29,8 @@
     "eject": "react-app-rewired eject"
   },
   "proxy": {
-    "/api": {
-      "target": "http://localhost:8080",
+    "/": {
+      "target": "http://10.180.3.160:8282",
       "changeOrigin": true
     }
   }
