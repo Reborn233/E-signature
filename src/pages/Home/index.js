@@ -26,16 +26,12 @@ class Home extends Component {
         }
     }
 
-    async next() {
+    next = async () => {
         const response = await testApi();
         console.log(response.data);
         // Toast.error('服务器连接异常');
         // this.props.history.push('/agreement');
-    }
-
-    confirm() {
-        console.log('confirm')
-    }
+    };
 
     sendHandler() {
         this.requestCode();
