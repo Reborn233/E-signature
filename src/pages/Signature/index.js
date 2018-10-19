@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
+import {toJS} from 'mobx';
 import Page from '../../components/Page';
 import {Article, Button, ButtonArea} from 'react-weui';
 import {Link} from 'react-router-dom';
@@ -25,16 +26,17 @@ class Signature extends Component {
         super();
         this.state = {
             show: false,
-        }
+        };
+
     }
 
-    save() {
-        const base64 = this.refs.canvas.save();
+    save(data) {
+        const base64 = data;
         const {update} = this.props.formStore;
         this.setState({
             show: false
         });
-        update('signature', base64);
+        update('signature', base64.substring(base64.indexOf(',') + 1));
         const img = `
             <img src="${base64}" alt="签名" height="200" />
         `;
@@ -47,9 +49,16 @@ class Signature extends Component {
         });
     }
 
-    bound() {
-        console.log(JSON.stringify(this.props.formStore.form));
-    }
+    bound = async () => {
+        const params = this.props.formStore.form;
+        console.log(toJS(params));
+        // try {
+        //     const response = await testApi(toJS(params));
+        //     console.log(response);
+        // } catch (e) {
+        //     console.log(e)
+        // }
+    };
 
     render() {
         return (
@@ -77,6 +86,9 @@ class Signature extends Component {
                 <ButtonArea>
                     <Button onClick={this.bound.bind(this)}>绑定</Button>
                 </ButtonArea>
+                <pre style={{whiteSpace:'normal',padding:'15px'}}>
+                    {navigator.userAgent}
+                </pre>
             </Page>
         )
     }

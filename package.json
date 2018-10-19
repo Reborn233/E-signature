@@ -9,12 +9,13 @@
     "mobx": "^5.5.0",
     "mobx-react": "^5.2.8",
     "prop-types": "^15.6.2",
+    "qs": "^6.5.2",
     "react": "^16.5.2",
     "react-app-rewire-mobx": "^1.0.9",
     "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
+    "react-fastclick": "^3.0.2",
     "react-jweixin": "^1.0.0",
-    "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-svg": "^6.0.15",
@@ -23,16 +24,16 @@
     "weui": "1.1.0"
   },
   "scripts": {
-    "start": "cross-env FS_ENV=dev react-app-rewired start",
-    "sit": "cross-env FS_ENV=sit react-app-rewired build",
-    "build": "cross-env FS_ENV=prod react-app-rewired build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject"
   },
-  "proxy": {
-    "/": {
-      "target": "http://10.180.3.160:8282",
-      "changeOrigin": true
-    }
-  }
+  "proxy": "http://10.180.3.160:8666",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

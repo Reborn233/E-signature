@@ -54,6 +54,11 @@ class Canvas extends Component {
         this.ctx.closePath();
     }
 
+    confirm(){
+        const {confirm} = this.props;
+        confirm(this.save())
+    }
+
     clear() {
         const {width, height} = this.pos;
         this.ctx.clearRect(0, 0, width, height);
@@ -64,7 +69,6 @@ class Canvas extends Component {
     }
 
     render() {
-        const {confirm} = this.props;
         return (
             <div ref='box' style={styles.box}>
                 <canvas ref='canvas'
@@ -75,7 +79,7 @@ class Canvas extends Component {
                         onTouchMove={this.onTouchMove.bind(this)}
                         onTouchEnd={this.onTouchEnd.bind(this)}
                 />
-                <Button onClick={confirm}>确定</Button>
+                <Button onClick={this.confirm.bind(this)}>确定</Button>
                 <Button type='default' onClick={this.clear.bind(this)}>清除</Button>
             </div>
         )
@@ -83,7 +87,7 @@ class Canvas extends Component {
 }
 
 Canvas.popTypes = {
-    confirm:PropTypes.func.isRequired
+    confirm: PropTypes.func.isRequired
 };
 
 export default Canvas;

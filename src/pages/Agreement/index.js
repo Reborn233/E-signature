@@ -3,22 +3,18 @@ import {
     TabBody, Tab, TabBar, Button, Agreement, ButtonArea, Article, NavBar
 } from 'react-weui';
 import Page from '../../components/Page';
+import {observer, inject} from 'mobx-react';
 
 import {withRouter} from 'react-router-dom';
 
 
+@inject('formStore')
+@observer
 class Agree extends Component {
-    constructor() {
-        super();
-        this.state = {
-            checked: false
-        }
-    }
 
     checkHandler(e) {
-        this.setState({
-            checked: e.target.checked
-        })
+        const {agree} = this.props.formStore;
+        agree(e.target.checked);
     }
 
     next() {
@@ -26,6 +22,7 @@ class Agree extends Component {
     }
 
     render() {
+        const {checked} = this.props.formStore;
         return (
             <Page>
                 <Tab>
@@ -77,11 +74,11 @@ class Agree extends Component {
                         </Article>
                     </TabBody>
                     <TabBar style={{display: 'block'}}>
-                        <Agreement defaultChecked={this.state.checked} onChange={this.checkHandler.bind(this)}>
+                        <Agreement defaultChecked={checked} onChange={this.checkHandler.bind(this)}>
                             &nbsp;&nbsp;我已认真阅读并同意 <a>认证授权</a>
                         </Agreement>
                         <ButtonArea>
-                            <Button disabled={!this.state.checked} onClick={this.next.bind(this)}>协议签署</Button>
+                            <Button disabled={!checked} onClick={this.next.bind(this)}>协议签署</Button>
                         </ButtonArea>
                     </TabBar>
                 </Tab>
