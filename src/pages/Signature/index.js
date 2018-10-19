@@ -5,6 +5,7 @@ import Page from '../../components/Page';
 import {Article, Button, ButtonArea} from 'react-weui';
 import {Link} from 'react-router-dom';
 import Canvas from '../../components/Canvas';
+import {testApi} from '../../api'
 
 const styles = {
     box: {
@@ -52,12 +53,12 @@ class Signature extends Component {
     bound = async () => {
         const params = this.props.formStore.form;
         console.log(toJS(params));
-        // try {
-        //     const response = await testApi(toJS(params));
-        //     console.log(response);
-        // } catch (e) {
-        //     console.log(e)
-        // }
+        try {
+            const response = await testApi(toJS(params));
+            console.log(response);
+        } catch (e) {
+            console.log(e)
+        }
     };
 
     render() {
@@ -86,7 +87,7 @@ class Signature extends Component {
                 <ButtonArea>
                     <Button onClick={this.bound.bind(this)}>绑定</Button>
                 </ButtonArea>
-                <pre style={{whiteSpace:'normal',padding:'15px'}}>
+                <pre style={{whiteSpace: 'normal', padding: '15px'}}>
                     {navigator.userAgent}
                 </pre>
             </Page>

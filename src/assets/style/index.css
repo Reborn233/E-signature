@@ -125,6 +125,51 @@ body {
     transform: rotate(45deg);
 }
 
+.check.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 4px;
+    width: 25px;
+    height: 13px;
+    border-bottom: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.remove.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.remove.icon:before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 1px;
+    top: 10px;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.remove.icon:after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 1px;
+    top: 10px;
+    background-color: currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
 .weui-vcode-btn {
     position: relative;
     border-left: none;

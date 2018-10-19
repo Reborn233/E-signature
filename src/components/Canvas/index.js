@@ -16,6 +16,18 @@ const styles = {
     },
     canvas: {
         border: '1px solid #3399EA',
+    },
+    left: {
+        left: 30,
+        bottom: 18,
+        zIndex: 100,
+        cursor: 'pointer'
+    },
+    right: {
+        right: 30,
+        bottom: 30,
+        zIndex: 100,
+        cursor: 'pointer'
     }
 };
 
@@ -54,7 +66,7 @@ class Canvas extends Component {
         this.ctx.closePath();
     }
 
-    confirm(){
+    confirm() {
         const {confirm} = this.props;
         confirm(this.save())
     }
@@ -74,13 +86,15 @@ class Canvas extends Component {
                 <canvas ref='canvas'
                         style={styles.canvas}
                         width={document.body.clientWidth - 22}
-                        height={document.body.clientHeight - 150}
+                        height={document.body.clientHeight - 70}
                         onTouchStart={this.onTouchStart.bind(this)}
                         onTouchMove={this.onTouchMove.bind(this)}
                         onTouchEnd={this.onTouchEnd.bind(this)}
                 />
-                <Button onClick={this.confirm.bind(this)}>确定</Button>
-                <Button type='default' onClick={this.clear.bind(this)}>清除</Button>
+                <div className="remove icon" style={styles.left} onClick={this.clear.bind(this)}></div>
+                <div className="check icon" style={styles.right} onClick={this.confirm.bind(this)}></div>
+                {/*<Button onClick={this.confirm.bind(this)}>确定</Button>*/}
+                {/*<Button type='default' onClick={this.clear.bind(this)}>清除</Button>*/}
             </div>
         )
     }
