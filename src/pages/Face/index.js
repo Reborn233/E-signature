@@ -5,7 +5,8 @@ import faces from '../../svg/face.svg';
 import {Button, ButtonArea} from 'react-weui';
 import {withRouter} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
-// import axios from 'axios';
+import {isImage, zipImg, base64toBlob} from '../../assets/utils';
+import axios from 'axios';
 
 const styles = {
     iconSize: {
@@ -33,45 +34,51 @@ const styles = {
 class Face extends Component {
 
     next() {
-        // const file = this.refs.input.files[0];
-        // const url = '/test/testFace';
-        // let params = new FormData();
-        // params.append('file', file, file.name);
-        // params.append('name', '沈冬明');
-        // params.append('identity', '310112199311041817');
-        // params.append('phone', '15021209145');
-        // const config = {
-        //     headers: {'Content-Type': 'multipart/form-data'}
-        // };
-        // console.log(params);
-        // axios.post(url, params, config)
-        //     .then(response => {
-        //         console.log(response)
-        //     })
-        this.props.history.push('/signature')
+        const file = this.refs.input.files[0];
+        if (!isImage((this.refs.input))) {
+            alert('文件格式必须为：png/jpg/jpeg');
+            return;
+        }
+        const {image} = this.props.formStore;
+        const zipFile = base64toBlob(image);
+        console.log('zipFile: ', zipFile.size);
+        if (zipFile.size > 1024 * 1024) {
+            alert('图片大小不能超过1M');
+            return;
+        }
+        const url = '/test/testFace';
+        let params = new FormData();
+        params.append('file', zipFile, zipFile.name);
+        params.append('name', '沈冬明');
+        params.append('identity', '310112199311041817');
+        params.append('phone', '15021209145');
+        const config = {
+            headers: {'Content-Type': 'multipart/form-data'}
+        };
+        axios.post(url, params, config)
+            .then(response => {
+                console.log(response)
+            })
+        // this.props.history.push('/signature')
+
     }
 
     openMedia() {
         this.refs.input.click();
     }
 
+
     // 获取照片base64
     photo() {
         const file = this.refs.input;
         const files = file.files;
         if (files.length === 0) return;
-        const reader = new FileReader();
-        let imgFile;
-        reader.onload = (e) => {
-            imgFile = e.target.result;
-            const {setImage} = this.props.formStore;
-            setImage(imgFile);
-        };
-        reader.onerror = e => {
-            console.log(e)
-        };
+        // 压缩图片
         try {
-            reader.readAsDataURL(files[0]);
+            zipImg(files[0], (base64) => {
+                const {setImage} = this.props.formStore;
+                setImage(base64);
+            });
         } catch (e) {
             console.log(e)
         }

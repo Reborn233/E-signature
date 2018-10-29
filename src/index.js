@@ -8,11 +8,11 @@ import {Provider} from 'mobx-react';
 import stores from './store';
 
 import App from './router';
-import initReactFastclick from 'react-fastclick';
+// import initReactFastclick from 'react-fastclick';
 import registerServiceWorker from './registerServiceWorker';
 import VConsole from 'vconsole';
 
-initReactFastclick();
+// initReactFastclick();
 
 if (process.env.NODE_ENV === 'development') {
     new VConsole();

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'react-weui';
+// import {Button} from 'react-weui';
 import PropTypes from 'prop-types';
 
 const styles = {
