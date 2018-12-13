@@ -169,7 +169,6 @@ body {
     transform: rotate(-45deg);
 }
 
-
 .weui-vcode-btn {
     position: relative;
     border-left: none;
@@ -191,4 +190,14 @@ body {
     font-size: 55px;
 }
 
+/*.table {*/
+    /*width: 100%;*/
+    /*border: 1px solid #555;*/
+    /*border-collapse: collapse;*/
+/*}*/
+
+/*.table td {*/
+    /*border: 1px solid #555;*/
+    /*padding: 0 2px;*/
+/*}*/
 

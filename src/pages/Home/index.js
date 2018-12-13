@@ -23,7 +23,7 @@ class Home extends Component {
     }
 
     next() {
-        this.props.history.push('/agreement');
+        this.props.history.push('/Test');
     };
 
     sendHandler() {
@@ -66,10 +66,6 @@ class Home extends Component {
         const {update} = this.props.formStore;
         const {name, value} = e.target;
         update(name, value);
-    }
-
-    componentDidMount() {
-        console.log('env: ', process.env)
     }
 
     render() {

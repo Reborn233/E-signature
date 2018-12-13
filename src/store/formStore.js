@@ -4,8 +4,8 @@ class FormStore {
 
     @observable form = {
         name: '沈冬明',
-        identity: '310112199311041817',
-        phone: '15021209145',
+        identity: '310xxx19931104xxxx',
+        phone: '150xxxxx145',
         signature:'',
         face:''
     };
