@@ -45,9 +45,9 @@ class Face extends Component {
     let params = new FormData()
     params.append('IdPASide', zipFile, zipFile.name)
     params.append('IdPBSide', zipFile, zipFile.name)
-    params.append('CifName', '赵强')
-    params.append('IdAddress', '河南省邓州市')
-    params.append('IdNo', '411381199205210830')
+    params.append('CifName', '赵X')
+    params.append('IdAddress', 'XX省XX市')
+    params.append('IdNo', '411381xxxxxxxx830')
     params.append('ActivityStart', '20101220')
     params.append('ActivityEnd', '20101220')
     const config = {
